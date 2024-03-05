@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 void menu() {
     std::cout << R"(
@@ -25,7 +24,7 @@ int main() {
         std::string pilih;
         std::cout << "masukan pilihan anda: ";
         std::cin >> pilih;
-
+        
         if (pilih == "1") {
             std::cout << "masuk" << std::endl;
             std::string nama, nim;
@@ -62,23 +61,64 @@ int main() {
                         catch (...) {
                             std::cout << "Masukkan harus berupa angka." << std::endl;
                         }
-                    }
-                    // Tambahkan kasus lainnya untuk konversi di sini
-                    else {
+                    } else if (pilih2 == "2") {
+                        try {
+                            double cmpj;
+                            std::cout << "masukan kecepatan dalam centimeter/detik: ";
+                            std::cin >> cmpj;
+                            double kmpj = cmpj * 0.036 / 1000;
+                            double mtrpd = cmpj / 100;
+                            double milpj = kmpj / 1.60934;
+                            std::cout << "Hasil konversi:" << kmpj << " km/jam" << std::endl;
+                            std::cout << "hasil konversi:" << mtrpd << " m/detik" << std::endl;
+                            std::cout << "hasil konversi :" << milpj << " mil/jam" << std::endl;
+                        }
+                        catch (...) {
+                            std::cout << "Masukkan harus berupa angka." << std::endl;
+                        }
+                    } else if (pilih2 == "3") {
+                        try {
+                            double mtrpd;
+                            std::cout << "masukan kecepatan dalam meter/detik: ";
+                            std::cin >> mtrpd;
+                            double kmpj = mtrpd * 3.6;
+                            double cmpj = mtrpd * 100;
+                            double milpj = kmpj / 1.60934;
+                            std::cout << "Hasil konversi:" << kmpj << " km/jam" << std::endl;
+                            std::cout << "hasil konversi:" << cmpj << " cm/detik" << std::endl;
+                            std::cout << "hasil konversi :" << milpj << " mil/jam" << std::endl;
+                        }
+                        catch (...) {
+                            std::cout << "Masukkan harus berupa angka." << std::endl;
+                        }
+                    } else if (pilih2 == "4") {
+                        try {
+                            double milpj;
+                            std::cout << "masukan kecepatan dalam mil/jam: ";
+                            std::cin >> milpj;
+                            double kmpj = milpj * 1.60934;
+                            double cmpj = kmpj * 100000 / 3600;
+                            double mtrpd = kmpj * 1000 / 3600;
+                            std::cout << "Hasil konversi:" << kmpj << " km/jam" << std::endl;
+                            std::cout << "hasil konversi:" << cmpj << " cm/detik" << std::endl;
+                            std::cout << "hasil konversi :" << mtrpd << " m/detik" << std::endl;
+                        }
+                        catch (...) {
+                            std::cout << "Masukkan harus berupa angka." << std::endl;
+                        }
+                    } else {
                         std::cout << "pilihan anda tidak benar" << std::endl;
                     }
-                }
-                else {
+                    break;
+                } else {
                     percobaan += 1;
                     std::cout << "salah" << std::endl;
                 }
             }
-        }
-        else if (pilih == "2") {
+        } else if (pilih == "2") {
             std::cout << "keluar" << std::endl;
             break;
-        }
-        else {
+        } else {
             std::cout << "pilihan tidak tersedia" << std::endl;
         }
     }
